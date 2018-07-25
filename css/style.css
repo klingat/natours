@@ -7,14 +7,14 @@ Dark green: #28b485
 
 */
 
-/*  B A S I C   R E S E T  */
+/*  BASIC RESET  */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; /* removes borders from total width */
 }
 
-/*  O V E R A L L   S T Y L I N G  */
+/*  OVERALL STYLING  */
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -24,7 +24,7 @@ body {
   padding: 30px;
 }
 
-/*  H E A D E R  */
+/*  HEADER  */
 .header {
   height: 95vh;
   background-image: 
@@ -37,6 +37,7 @@ body {
   background-size: cover;
   background-position: top; /* So that we always see the top of the image even when the screen resizes */
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* polygon(x y, x y, x y) */
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 }
 
@@ -52,6 +53,7 @@ body {
 
 .text-box {
   position: absolute;
+  text-align: center;
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%); /* to center text horizontally and vertically */
@@ -61,6 +63,7 @@ body {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
+  margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -78,7 +81,6 @@ body {
 .heading-primary-sub {
   display: block;
   font-size: 20px;
-  /* font-weight: 700; */
   letter-spacing: 17.4px;
   /* 
   animation-name: moveInRight;
@@ -88,7 +90,6 @@ body {
   animation: moveInRight 1s ease-out;
 }
 
-/*  H E A D E R   A N I M A T I O N S  */
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -118,5 +119,73 @@ body {
   100% {
     opacity: 1;
     transform: translate(0)
+  }
+}
+
+/* BUTTONS */
+.btn:link, 
+.btn:visited {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 100px;
+  transition: all, .2s;
+  position: relative;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* when clicked */
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  padding: 15px 40px;
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all .4s;
+}
+
+.btn-white::after {
+  content: "";
+  background-color: white;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInBottom .5s ease-out .75s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
