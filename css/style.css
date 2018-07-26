@@ -168,7 +168,7 @@ body {
   background-color: white;
 }
 
-.btn:hover::after {
+.btn:active::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
