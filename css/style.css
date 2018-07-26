@@ -8,14 +8,16 @@ Dark green: #28b485
 */
 
 /*  BASIC RESET  */
-* {
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* removes borders from total width */
+  box-sizing: inherit;
 }
 
 html {
-  font-size: 10px;
+  font-size: 62.5%; /* browser default font size is 16px but we want 10px in % */
 }
 
 /*  OVERALL STYLING  */
@@ -25,6 +27,7 @@ body {
   line-height: 1.7;
   color: #777;
   padding: 3rem;
+  box-sizing: border-box; /* removes borders from total width */
 }
 
 /*  HEADER  */
@@ -135,6 +138,7 @@ body {
   transition: all, .2s;
   position: relative;
   padding: 1.5rem 4rem;
+  font-size: 1.6rem;
 }
 
 .btn:hover {
